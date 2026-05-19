@@ -1,0 +1,136 @@
+# SAV86 Module - French translations
+# Version 20260421 Build 1020
+# /volume1/web/dolibarr_test/htdocs/custom/sav86/langs/fr_FR/sav86@sav86.lang
+
+# ============================================================================
+# MENUS
+# ============================================================================
+SAV86=SAV86
+SAV86Interventions=Interventions SAV86
+SAV86InterventionList=Liste des interventions SAV86
+ListOfInterventions=Liste des interventions
+ClientList=Liste des clients
+NewIntervention=Nouvelle intervention
+InterventionList=Liste des interventions
+Search=Rechercher
+Version=Version
+BackToModuleList=Retour à la liste des modules
+
+# ============================================================================
+# STATUS (ÉTATS)
+# ============================================================================
+StatusNotStarted=Pas commencé
+StatusInProgress=En cours
+StatusWaiting=En attente
+StatusDone=Terminé
+StatusPickedUp=Parti
+
+# ============================================================================
+# FILTERS (FILTRES)
+# ============================================================================
+AllExceptPickedUp=Tous sauf "Parti"
+All=Tous
+Filter=Filtrer
+Reset=Réinitialiser
+RemoveFilter=Supprimer filtres
+Search=Rechercher
+
+# ============================================================================
+# FIELDS (CHAMPS)
+# ============================================================================
+Ref=Référence
+Client=Client
+DateEntry=Date d'entrée
+DatePlanned=Date prévue
+DateEnd=Date de fin
+DateSortie=Date de sortie
+Status=État
+Priority=Priorité
+Actions=Actions
+Events=Événements
+
+# Champs détaillés
+DateEntree=Date d'entrée
+DatePrevue=Date prévue
+DateFin=Date de fin
+Etat=État
+Priorite=Priorité
+Normal=Normal
+Urgent=Urgent
+TypePC=Type de PC
+TypeTour=Tour
+TypePortable=Portable
+TypeMobile=Mobile
+Probleme=Problème
+MotDePasse=Mot de passe
+PiecesJointes=Pièces jointes
+Intervention=Intervention
+CommentaireEtat=Commentaire
+Materiel=Matériel
+PrixMateriel=Prix matériel
+NbHeure=Heures
+Garantie=Garantie
+Consultee=Consultations
+Commentaire=Commentaire
+Facturee=Facturée
+RefFacture=Réf. facture
+
+# ============================================================================
+# ACTIONS
+# ============================================================================
+Print=Imprimer
+Edit=Modifier
+Delete=Supprimer
+Create=Créer
+Modify=Modifier
+Save=Enregistrer
+Cancel=Annuler
+CreateInvoice=Créer facture
+SendSMS=Envoyer SMS
+CreateJira=Créer ticket Jira
+
+# ============================================================================
+# MESSAGES
+# ============================================================================
+Unknown=Inconnu
+NoRecordFound=Aucun enregistrement trouvé
+Interventions=Interventions
+ConfirmDelete=Confirmez-vous la suppression ?
+RecordDeleted=Enregistrement supprimé
+SAV86RecordCreated=Intervention créée avec succès
+SAV86RecordUpdated=Intervention mise à jour
+SAV86RecordDeleted=Intervention supprimée
+Error=Erreur
+ErrorCreateRecord=Erreur lors de la création
+ErrorUpdateRecord=Erreur lors de la mise à jour
+ErrorDeleteRecord=Erreur lors de la suppression
+
+# ============================================================================
+# OTHER (AUTRES)
+# ============================================================================
+Yes=Oui
+No=Non
+Partially=Partiellement
+OutOfHTP=Hors HTP
+New=Créer
+List=Liste
+View=Voir
+Add=Ajouter
+Update=Mettre à jour
+Close=Fermer
+OK=OK
+SAV86ConditionsGenerales=Conditions générales de vente
+SAV86ConditionsGeneralesHelp=Texte affiché au verso du reçu (page 2). Utilisez \\n\\n pour les sauts de ligne.
+SAV86AfficherCGV=Afficher les conditions générales au verso du reçu
+SAV86AfficherCGVHelp=Cochez pour afficher la page 2 avec les conditions générales lors de l'impression
+SAV86AlertMdpVide=Alerte si champ "Mot de passe" vide
+SAV86AlertMdpVideHelp=Affiche une confirmation JavaScript si le champ mot de passe est laissé vide lors de l'enregistrement
+SAV86ContactInfo=Informations de contact
+SAV86ContactTel=Téléphone de contact
+SAV86ContactTelHelp=Numéro de téléphone affiché sur le reçu
+SAV86ContactEmail=Email de contact
+SAV86ContactEmailHelp=Adresse email affichée sur le reçu
+SAV86ContactJours=Jours d'ouverture
+SAV86ContactJoursHelp=Ex: Lun-Ven, Lun-Sam, etc.
+SAV86ContactHoraires=Horaires d'ouverture
+SAV86ContactHorairesHelp=Ex: 9h-12h30 / 14h30-18h30
