@@ -1,0 +1,9 @@
+# Backups
+*.bak*
+*~
+
+# Session
+sav86_session.*
+
+# Config with credentials
+ajax/param_jira_direct.php
