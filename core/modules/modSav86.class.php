@@ -28,8 +28,8 @@ class modSav86 extends DolibarrModules
         $this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
         $this->picto = 'generic';
 		
-		// Config pages - Pour faire apparaître la roue dentée ⚙️
-		$this->config_page_url = array("setup.php@sav86");
+		// Config pages - Pour faire apparaître la roue dentée
+		$this->config_page_url = array('/custom/sav86/admin/setup.php');
         
         // Fichiers de langue
         $this->langfiles = array("sav86@sav86");
