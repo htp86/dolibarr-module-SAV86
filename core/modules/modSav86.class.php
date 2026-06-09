@@ -24,7 +24,7 @@ class modSav86 extends DolibarrModules
         
         $this->description = "Gestion des interventions SAV en atelier - Réparation informatique";
         $this->descriptionlong = "Module de gestion des interventions de dépannage informatique en atelier.";
-        $this->version = '1.1.0';
+        $this->version = '1.2.0';
         $this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
         $this->picto = 'generic';
 		
