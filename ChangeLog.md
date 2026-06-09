@@ -1,7 +1,16 @@
 # SAV86 - Historique des versions
 
+## Version 1.1 - 09/06/2026
+**PORTABILITÉ & CONFORMITÉ**
+- Standardisation en-têtes PHP : $PATHFILE=__FILE__, VERSION/BUILD via filemtime
+- Renommage $DEBUG_BOOL en $DEBUG_LIGHT (uniformisation)
+- Suppression des chemins absolus (/volume1/web/...) dans tous les fichiers
+- Suppression code mort : lib/sav86.lib.php (vide), setupPage() redondant
+- Constantes JIRA lues depuis la base (plus de valeurs en dur)
+- Version module alignée sur le tag git (1.5 → 1.1)
+
 ## Version 1.5 - 22/04/2026 (Build 20260422-1900)
-**INTÉGRATION JIRA FONCTIONNELLE ✅**
+**INTÉGRATION JIRA FONCTIONNELLE**
 - Architecture "OVH Style" : config JIRA via fichier dédié param_jira_direct.php
 - Format ADF pour description JIRA (conversion texte → structure Atlassian)
 - Logs de debug : jira_debug.log et jira_curl_verbose.txt
@@ -9,7 +18,6 @@
 - Correction driver PDO : mysql au lieu de mysqli
 - Assignés configurables via modal de sélection
 - Issue Type par ID numérique (10003) pour compatibilité JIRA Cloud
-- Token API en clair dans le fichier de config (contourne le chiffrement Dolibarr)
 
 ## Version 1.31 - 21/04/2026 (Build 20260421-1600)
 **INTÉGRATION JIRA (préliminaire) & CORRECTIONS**
@@ -40,7 +48,7 @@
 - Alerte configurable si champ "Mot de passe" vide
 - Constantes Dolibarr : SAV86_CONDITIONS_GENERALES, SAV86_AFFICHER_CGV, SAV86_ALERT_MDP_VIDE
 - Correction erreur 500 (include admin.lib.php)
-- Debug amélioré : 2 niveaux ($DEBUG_BOOL / $DEBUG_ERRORS)
+- Debug amélioré : 2 niveaux ($DEBUG_LIGHT / $DEBUG_ERRORS)
 
 ## Version 1.0.0 - 20/04/2026 (Build 20260420-1500)
 **Phase 1 TERMINÉE ✅**
@@ -51,7 +59,7 @@
 - Optimisation impression (interlignes 1.2, layout compact)
 - Correction bug création (exit() + ob_end_clean())
 - Ajout champ Intervention dans CREATE/EDIT
-- Correction bug $DEBUG_BOOL (sav86.class.php)
+- Correction bug $DEBUG_LIGHT (sav86.class.php)
 - Correction conversion dates DATETIME → timestamp
 - Correction bug select_dolusers ($morefilter)
 - Suppression liens cliquables Commercial/Technicien (impression)

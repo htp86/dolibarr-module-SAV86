@@ -1,22 +1,17 @@
 <?php
 /**
  * Traitement ADD/UPDATE pour sav86_card.php
- * Version 20260507 Build 1757
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/htdocs/sav86/core/sav86_card_actions.inc.php
  */
 
-// ============================================================================
-// BLOC DEBUG STANDARD
-// ============================================================================
-$PATHFILE = '/volume1/web/dolibarr_test/htdocs/custom/sav86/htdocs/sav86/core/sav86_card_actions.inc.php';
-$VERSION = '20260507';
-$BUILD = '1757';
-$DEBUG_LIGHT = true;
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = false;
 $DEBUG_ERRORS = false;
 
 if ($DEBUG_LIGHT) {
     print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
-    print '<strong>📡 SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
+    print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
     print ' | '.htmlspecialchars($PATHFILE);
     print '</div>';
 }
@@ -27,7 +22,6 @@ if ($DEBUG_ERRORS) {
     error_reporting(0);
     ini_set('display_errors', 0);
 }
-// ============================================================================
 
 global $db, $conf, $langs, $user, $form;
 

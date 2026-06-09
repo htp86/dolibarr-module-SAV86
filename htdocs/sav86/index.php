@@ -3,14 +3,15 @@
  * Point d'entrée module SAV86
  */
 
-$PATHFILE = '/volume1/web/dolibarr_test/htdocs/custom/sav86/htdocs/sav86/index.php';
-$VERSION = '20260416';
-$BUILD = '1731';
-$DEBUG_LIGHT = true;
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = false;
 $DEBUG_ERRORS = false;
+
 if ($DEBUG_LIGHT) {
     print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
-    print '<strong>📡 Import Ciel 8.11</strong> - Version '.$VERSION.' Build '.$BUILD;
+    print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
     print ' | '.htmlspecialchars($PATHFILE);
     print '</div>';
 }

@@ -1,18 +1,21 @@
 <?php
 /**
  * Affichage VIEW pour sav86_card.php
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/htdocs/sav86/core/sav86_card_view.inc.php
  */
+
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = false;
+$DEBUG_ERRORS = false;
 
 // Déclaration des globales nécessaires
 global $db, $conf, $langs, $user, $form;
-global $DEBUG_BOOL, $DEBUG_ERRORS;
 
-// En-tête de page
-if ($DEBUG_BOOL) {
-    print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;">';
-    print '<strong>🔧 SAV86 - Version '.SAV86_VERSION.' Build '.SAV86_BUILD.'</strong>';
-    print ' | Mode: VIEW | Debug: ON';
+if ($DEBUG_LIGHT) {
+    print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
+    print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
+    print ' | '.htmlspecialchars($PATHFILE);
     print '</div>';
 }
 

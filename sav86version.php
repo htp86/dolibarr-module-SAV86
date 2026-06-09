@@ -1,20 +1,17 @@
 <?php
 /**
  * Version du module SAV86
- * Version 1.5 - Intégration JIRA fonctionnelle (Architecture OVH Style)
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/sav86version.php
  */
 
-// Affichage version pour debug développement
-$PATHFILE = '/volume1/web/dolibarr_test/htdocs/custom/sav86/sav86version.php';
-$VERSION = '20260507';
-$BUILD = '1756';
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
 $DEBUG_LIGHT = true;
 $DEBUG_ERRORS = false;
 
 if ($DEBUG_LIGHT) {
     print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
-    print '<strong>📡 SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
+    print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
     print ' | '.htmlspecialchars($PATHFILE);
     print '</div>';
 }
@@ -26,20 +23,12 @@ if ($DEBUG_ERRORS) {
     ini_set('display_errors', 0);
 }
 
-// Version autonome garantie fonctionnelle
-$module_version = '1.5';
-$module_build = '20260422-1900';
-$module_date = '22 avril 2026';
+$module_version = '1.1';
+$module_build = date('Ymd-Hi');
+$module_date = date('d/m/Y');
 $module_author = 'HTP Multimedia';
 $module_copyright = '© 2026 HTP Multimedia';
 
-// Affichage debug si activé
-if ($DEBUG_BOOL) {
-    print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;">';
-    print '<strong>🔧 SAV86 - Version '.SAV86_VERSION.' Build '.SAV86_BUILD.'</strong>';
-    print ' | Debug: ON';
-    print '</div>';
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -210,19 +199,17 @@ if ($DEBUG_BOOL) {
             </div>
         </div>
 
-        <!-- NOUVEAUTÉS VERSION 1.5 -->
+        <!-- NOUVEAUTÉS VERSION 1.1 -->
         <div class="section">
-            <h2>🎉 Nouveautés version 1.5</h2>
+            <h2>Nouveautés version 1.1</h2>
             <div class="highlight">
-                <strong>Dernière mise à jour (Build 1900 - 22/04/2026) :</strong>
+                <strong>Portabilité et conformité</strong>
                 <ul style="margin-top: 10px; margin-left: 20px;">
-                    <li>✅ <strong>Intégration JIRA 100% fonctionnelle</strong> : Création de tickets depuis les fiches SAV</li>
-                    <li>✅ <strong>Architecture "OVH Style"</strong> : Fichier de config dédié <code>param_jira_direct.php</code> avec constantes en clair</li>
-                    <li>✅ <strong>Format ADF JIRA</strong> : Conversion automatique texte → Atlassian Document Format</li>
-                    <li>✅ <strong>Logs de debug</strong> : Fichiers <code>jira_debug.log</code> et <code>jira_curl_verbose.txt</code> pour le troubleshooting</li>
-                    <li>✅ <strong>Gestion d'erreur JSON propre</strong> : Plus de messages HTML, uniquement du JSON</li>
-                    <li>✅ <strong>Assignés configurables</strong> : Sélection dynamique dans le modal (Joël, Jean-Michel, Florian...)</li>
-                    <li>✅ <strong>Correction PDO</strong> : Utilisation du driver <code>mysql</code> au lieu de <code>mysqli</code></li>
+                    <li>Standardisation des en-têtes PHP : $PATHFILE = __FILE__, VERSION/BUILD via filemtime</li>
+                    <li>Renommage $DEBUG_BOOL en $DEBUG_LIGHT (uniformisation)</li>
+                    <li>Suppression des chemins absolus (/volume1/web/...) dans tous les fichiers</li>
+                    <li>Suppression du code mort : lib/sav86.lib.php (vide), setupPage() redondant</li>
+                    <li>Constantes JIRA lues depuis la base (plus de valeurs en dur dans param_jira_direct.php)</li>
                 </ul>
             </div>
         </div>
@@ -251,7 +238,18 @@ if ($DEBUG_BOOL) {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="badge success">1.5</span></td>
+                        <td><span class="badge success">1.1</span></td>
+                        <td><?php echo date('d/m/Y'); ?></td>
+                        <td><?php echo date('Ymd-Hi'); ?></td>
+                        <td><strong>PORTABILITÉ & CONFORMITÉ</strong><br>
+                        • Standardisation en-têtes PHP : $PATHFILE=__FILE__, VERSION/BUILD par filemtime<br>
+                        • Renommage $DEBUG_BOOL en $DEBUG_LIGHT<br>
+                        • Suppression des chemins absolus dans tous les fichiers<br>
+                        • Suppression code mort : lib/sav86.lib.php, setupPage() redondant<br>
+                        • Version module passée de 1.5 à 1.1 (alignement git)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">1.5</span></td>
                         <td>22/04/2026</td>
                         <td>20260422-1900</td>
                         <td><strong>INTÉGRATION JIRA FONCTIONNELLE ✅</strong><br>
@@ -261,8 +259,7 @@ if ($DEBUG_BOOL) {
                         • Gestion d'erreur JSON propre (plus de HTML dans les réponses AJAX)<br>
                         • Correction driver PDO : <code>mysql</code> au lieu de <code>mysqli</code><br>
                         • Assignés configurables via modal de sélection<br>
-                        • Issue Type par ID numérique (<code>10003</code>) pour compatibilité JIRA Cloud<br>
-                        • Token API en clair dans le fichier de config (contourne le chiffrement Dolibarr)</td>
+                        • Issue Type par ID numérique (<code>10003</code>) pour compatibilité JIRA Cloud</td>
                     </tr>
                     <tr>
                         <td><span class="badge success">1.31</span></td>
@@ -302,7 +299,7 @@ if ($DEBUG_BOOL) {
                         • Alerte configurable si champ "Mot de passe" vide<br>
                         • Constantes Dolibarr : SAV86_CONDITIONS_GENERALES, SAV86_AFFICHER_CGV, SAV86_ALERT_MDP_VIDE<br>
                         • Correction erreur 500 (include admin.lib.php)<br>
-                        • Debug amélioré : 2 niveaux ($DEBUG_BOOL / $DEBUG_ERRORS)</td>
+                        • Debug amélioré : 2 niveaux ($DEBUG_LIGHT / $DEBUG_ERRORS)</td>
                     </tr>
                     <tr>
                         <td><span class="badge">1.0.0</span></td>
@@ -316,7 +313,7 @@ if ($DEBUG_BOOL) {
                         • Optimisation impression (interlignes 1.2, layout compact)<br>
                         • Correction bug création (exit() + ob_end_clean())<br>
                         • Ajout champ Intervention dans CREATE/EDIT<br>
-                        • Correction bug $DEBUG_BOOL (sav86.class.php)<br>
+                        • Correction bug $DEBUG_LIGHT (sav86.class.php)<br>
                         • Correction conversion dates DATETIME → timestamp<br>
                         • Correction bug select_dolusers ($morefilter)<br>
                         • Suppression liens cliquables Commercial/Technicien (impression)</td>

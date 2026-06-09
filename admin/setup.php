@@ -1,23 +1,18 @@
 <?php
 /**
  * Page de configuration du module SAV86
- * CORRECTION conversion sauts de ligne assignés JIRA
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/admin/setup.php
  */
 
-// Affichage version pour debug développement
-define('SAV86_VERSION', '20260421');
-define('SAV86_BUILD', '1657');
-
-// 2 niveaux de debug :
-$DEBUG_BOOL = true;
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = true;
 $DEBUG_ERRORS = false;
 
-// Activation du debug simple SI activé
-if ($DEBUG_BOOL) {
-	print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;">';
-	print '<strong>🔧 SAV86 - Version '.SAV86_VERSION.' Build '.SAV86_BUILD.'</strong>';
-	print ' | Mode: '.$mode_display.' | Debug: ON';
+if ($DEBUG_LIGHT) {
+	print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
+	print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
+	print ' | '.htmlspecialchars($PATHFILE);
 	print '</div>';
 }
 

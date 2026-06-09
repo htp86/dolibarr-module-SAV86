@@ -1,12 +1,16 @@
 <?php
 /**
  * Fonctions utilitaires pour sav86_card.php
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/htdocs/sav86/core/sav86_card_helpers.inc.php
  */
+
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = false;
+$DEBUG_ERRORS = false;
 
 // Déclaration des globales nécessaires
 global $db, $conf, $langs, $user, $form;
-global $DEBUG_BOOL, $DEBUG_ERRORS;
 
 /**
  * Parse et valide une date au format JJ/MM/AAAA

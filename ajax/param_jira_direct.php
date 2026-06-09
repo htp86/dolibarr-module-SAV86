@@ -1,5 +1,21 @@
 <?php
-// Version 20260422 Build 0911
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = false;
+$DEBUG_ERRORS = false;
+
+if ($DEBUG_LIGHT) {
+    print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
+    print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
+    print ' | '.htmlspecialchars($PATHFILE);
+    print '</div>';
+}
+if ($DEBUG_ERRORS) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
+
 // Inclusion Dolibarr pour lire la constante SAV86_JIRA_API_TOKEN en base
 if (!defined('DOL_INC_USED')) {
     $res = 0;

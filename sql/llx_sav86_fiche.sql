@@ -1,7 +1,5 @@
 -- ============================================================================
 -- Table llx_sav86_fiche - Fiches d'intervention SAV86
--- Version 20260416 Build 1202
--- /volume1/web/dolibarr_test/htdocs/custom/sav86/sql/llx_sav86_fiche.sql
 -- ============================================================================
 
 CREATE TABLE IF NOT EXISTS llx_sav86_fiche (

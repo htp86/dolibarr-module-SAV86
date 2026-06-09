@@ -1,8 +1,6 @@
 <?php
 /**
  * Module descriptor for SAV86
- * Version 20260422 Build 1150 
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/core/modules/modSav86.class.php
  */
 
 include_once DOL_DOCUMENT_ROOT.'/core/modules/DolibarrModules.class.php';
@@ -26,7 +24,7 @@ class modSav86 extends DolibarrModules
         
         $this->description = "Gestion des interventions SAV en atelier - Réparation informatique";
         $this->descriptionlong = "Module de gestion des interventions de dépannage informatique en atelier.";
-        $this->version = '1.0.0';
+        $this->version = '1.1.0';
         $this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
         $this->picto = 'generic';
 		
@@ -134,71 +132,4 @@ public function init($options = '')
         $sql = array();
         return $this->_remove($sql, $options);
     }
-/**
- * Page de configuration du module (roue dentée)
- */
-public function setupPage($options = '')
-	{
-    global $langs, $conf, $db;
-
-    // Traitement du formulaire si soumis
-    if (GETPOST('action', 'alpha') == 'setModuleOptions') {
-        $cgv = GETPOST('SAV86_CONDITIONS_GENERALES', 'restricthtml');
-        $afficher_cgv = GETPOST('SAV86_AFFICHER_CGV', 'int');
-        $alert_mdp = GETPOST('SAV86_ALERT_MDP_VIDE', 'int');
-        
-        dolibarr_set_const($db, 'SAV86_CONDITIONS_GENERALES', $cgv, 'chaine', 0, '', $conf->entity);
-        dolibarr_set_const($db, 'SAV86_AFFICHER_CGV', $afficher_cgv, 'bool', 0, '', $conf->entity);
-        dolibarr_set_const($db, 'SAV86_ALERT_MDP_VIDE', $alert_mdp, 'bool', 0, '', $conf->entity);
-        
-        setEventMessages($langs->trans("SetupSaved"), null, 'mesgs');
-    }
-
-    // Affichage du formulaire
-    llxHeader('', $langs->trans("ModuleSetup").' - SAV86');
-    
-    print load_fiche_titre($langs->trans("Configuration SAV86"));
-    
-    print '<form method="POST" action="'.$_SERVER["PHP_SELF"].'?module=sav86">';
-    print '<input type="hidden" name="action" value="setModuleOptions">';
-    print '<input type="hidden" name="token" value="'.newToken().'">';
-    
-    print '<div class="div-table-responsive-no-min">';
-    print '<table class="border centpercent">';
-    
-    // Conditions générales
-    print '<tr><td class="titlefield"><strong>'.$langs->trans("SAV86ConditionsGenerales").'</strong></td></tr>';
-    print '<tr><td>';
-    print '<textarea name="SAV86_CONDITIONS_GENERALES" rows="15" class="centpercent" style="font-family:monospace;font-size:12px;">';
-    print dol_escape_htmltag($conf->global->SAV86_CONDITIONS_GENERALES, 0, 1);
-    print '</textarea>';
-    print '<br><span class="opacitymedium">'.$langs->trans("SAV86ConditionsGeneralesHelp").'</span>';
-    print '</td></tr>';
-    
-    // Afficher CGV page 2
-    print '<tr><td class="titlefield"><strong>'.$langs->trans("SAV86AfficherCGV").'</strong></td></tr>';
-    print '<tr><td>';
-    print '<input type="checkbox" name="SAV86_AFFICHER_CGV" value="1"'.($conf->global->SAV86_AFFICHER_CGV ? ' checked' : '').'> ';
-    print $langs->trans("SAV86AfficherCGVHelp");
-    print '</td></tr>';
-    
-    // Alerte mot de passe vide
-    print '<tr><td class="titlefield"><strong>'.$langs->trans("SAV86AlertMdpVide").'</strong></td></tr>';
-    print '<tr><td>';
-    print '<input type="checkbox" name="SAV86_ALERT_MDP_VIDE" value="1"'.($conf->global->SAV86_ALERT_MDP_VIDE ? ' checked' : '').'> ';
-    print $langs->trans("SAV86AlertMdpVideHelp");
-    print '</td></tr>';
-    
-    print '</table>';
-    print '</div>';
-    
-    print '<br><div class="center">';
-    print '<input type="submit" class="button" value="'.$langs->trans("Save").'">';
-    print '</div>';
-    
-    print '</form>';
-    
-    llxFooter();
-	}
-
 }

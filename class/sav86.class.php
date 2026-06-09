@@ -1,8 +1,6 @@
 <?php
 /**
  * Class HTPSav86 - Gestion des interventions SAV86
- * Version 20260421 Build 1634 - CORRECTION suppression statut (n'existe pas en BDD)
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/class/sav86.class.php
  */
 
 require_once DOL_DOCUMENT_ROOT.'/core/class/commonobject.class.php';
@@ -143,7 +141,6 @@ class HTPSav86 extends CommonObject
 
     /**
      * Load object from database
-     * Version 20260421 Build 1600 - CORRECTION suppression statut
      */
     public function fetch($id)
     {

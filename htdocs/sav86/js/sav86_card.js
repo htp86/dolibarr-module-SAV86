@@ -1,6 +1,5 @@
 /**
  * Scripts SAV86 - Formulaire Carte (Create/Edit)
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/htdocs/sav86/js/sav86_card.js
  */
 $(document).ready(function() {
     // Configuration injectée par PHP

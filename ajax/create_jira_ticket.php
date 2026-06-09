@@ -1,14 +1,27 @@
 <?php
 /**
- * Création de ticket JIRA - Version "OVH Style" (sans Dolibarr heavy loading)
- * Version 20260422 Build 1900
- * /volume1/web/dolibarr_test/htdocs/custom/sav86/ajax/create_jira_ticket.php
- * 
- * Inspiration : /home/htpmulti/www/htpV0/sav86/create_jira.php (fonctionnel)
+ * Création de ticket JIRA
  */
 
+$PATHFILE = __FILE__;
+$VERSION = date('Ymd', filemtime(__FILE__));
+$BUILD = date('Hi', filemtime(__FILE__));
+$DEBUG_LIGHT = false;
+$DEBUG_ERRORS = false;
+
+if ($DEBUG_LIGHT) {
+    print '<div style="background:#e7f3ff;padding:8px;margin:10px;border-left:4px solid #007bff;font-family:monospace;font-size:11px;">';
+    print '<strong>SAV86</strong> - Version '.$VERSION.' Build '.$BUILD;
+    print ' | '.htmlspecialchars($PATHFILE);
+    print '</div>';
+}
+if ($DEBUG_ERRORS) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
+
 // ============================================================================
-// 1. CONFIGURATION JIRA - CHARGEMENT DIRECT (comme OVH)
+// 1. CONFIGURATION JIRA - CHARGEMENT DIRECT
 // ============================================================================
 // On charge le fichier de config avec les constantes en clair
 $paramFile = __DIR__ . '/param_jira_direct.php';
